@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+    <div id="com-main-div">
+        <div id="com-text-div">
+            <p id="com-para">Decompress Files</p>
+        </div>
+        <form method="post" enctype="multipart/form-data" id="myForm">
+            <div id="com-main-div2">
+                <div id="com-input">
+                    {{form.hidden_tag()}}
+                    {{form.file(id="com-file-input")}}
+                </div>
+                <div>
+                    {{form.submit(onclick="show()",class="button")}}
+                </div>
+            </div>
+        </form>
+        <div>
+            <a class="btn btn-success" id="btn btn-success" style="display: none;"
+                href="{{url_for('download')}}">Download</a>
+        </div>
+    </div>
+
+    <script>
+        if ('{{codes}}' == 1) {
+            // console.log('{{codes}}');
+            var btn = document.getElementById("btn btn-success");
+            btn.style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
